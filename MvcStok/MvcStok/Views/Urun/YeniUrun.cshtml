@@ -1,0 +1,33 @@
+﻿@model MvcStok.Models.Entity.TBLURUNLER
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+ 
+<form class="form-group" method="post">
+    <div>
+        <label>Ürün Ad</label>
+        <input type="text" class="form-control" name="URUNAD"  required="" maxlength="30"/>
+    </div><div>
+        <label>Marka</label>
+        <input type="text" class="form-control" name="MARKA" required="" />
+    </div><div>
+    <label>Kategori Seçiniz</label>
+        @Html.DropDownListFor(m=>m.TBLKATEGORILER.KATEGORIID,(List<SelectListItem>)ViewBag.dgr, new { 
+  @class="form-control"
+   })
+        @*yukarıdaki blokta m değeri olşturdum ve m ye kategoriadı ata,ve kategoriad da dropdown listesine çekecek. 
+        selectlistitem la öğeleri seçiyorum hangi öğeleri; controller da değerleri atadığım dgr nesnesindeki öğeleri*@
+
+</div><div>
+    <label>Fiyat</label>
+    <input type="text" class="form-control" name="FIYAT" />
+</div><div>
+    <label>Stok</label>
+    <input type="text" class="form-control" name="STOK" />
+</div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ürün Ekle</button>
+    </div>
+</form>
+
